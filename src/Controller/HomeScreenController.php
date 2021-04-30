@@ -39,7 +39,7 @@ class HomeScreenController extends AbstractController
     }
 
     /**
-     * @Route("/recipes/all",name="get_all_recipes", methods={"GET"})
+     * @Route("/recipes/all", name="get_all_recipes", methods={"GET"})
      */
     public function getAllRecipes(){
         $rootPath = $this -> getParameter("kernel.project_dir");
