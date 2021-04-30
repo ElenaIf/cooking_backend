@@ -1,0 +1,22 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "title": "waffle",
+      "ingredients": "ing 1",
+      "difficulty": "hard"
+    },
+    {
+      "id": "2",
+      "title": "boiled potato",
+      "ingredients": "potatoes, water",
+      "difficulty": "easy"
+    },
+    {
+      "id": "3",
+      "title": "instant noodle",
+      "ingredients": "noodles, water",
+      "difficulty": "average"
+    }
+  ]
+}
