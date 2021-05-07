@@ -8420,12 +8420,10 @@
     ],
     "dev": true,
     "dev-package-names": [
-        "nikic/php-parser",
         "symfony/browser-kit",
         "symfony/css-selector",
         "symfony/debug-bundle",
         "symfony/dom-crawler",
-        "symfony/maker-bundle",
         "symfony/phpunit-bridge",
         "symfony/web-profiler-bundle"
     ]

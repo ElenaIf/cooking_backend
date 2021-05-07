@@ -15,4 +15,6 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
+    'add_new_recipe' => [[], ['_controller' => 'App\\Controller\\HomeScreenController::addRecipe'], [], [['text', '/recipes/add']], [], []],
+    'get_all_recipes' => [[], ['_controller' => 'App\\Controller\\HomeScreenController::getAllRecipe'], [], [['text', '/recipes/all']], [], []],
 ];
