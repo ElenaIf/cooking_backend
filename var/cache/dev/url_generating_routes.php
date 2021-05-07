@@ -17,4 +17,7 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     'add_new_recipe' => [[], ['_controller' => 'App\\Controller\\HomeScreenController::addRecipe'], [], [['text', '/recipes/add']], [], []],
     'get_all_recipes' => [[], ['_controller' => 'App\\Controller\\HomeScreenController::getAllRecipe'], [], [['text', '/recipes/all']], [], []],
+    'find_a_recipe' => [['id'], ['_controller' => 'App\\Controller\\HomeScreenController::findRecipe'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/recipe/find']], [], []],
+    'edit_a_recipe' => [['id', 'name'], ['_controller' => 'App\\Controller\\HomeScreenController::editRecipe'], [], [['variable', '/', '[^/]++', 'name', true], ['variable', '/', '[^/]++', 'id', true], ['text', '/recipe/edit']], [], []],
+    'remove_a_recipe' => [['id'], ['_controller' => 'App\\Controller\\HomeScreenController::removeRecipe'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/recipe/remove']], [], []],
 ];

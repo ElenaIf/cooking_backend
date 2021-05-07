@@ -33,6 +33,11 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/recipe/(?'
+                    .'|find/([^/]++)(*:193)'
+                    .'|edit/([^/]++)/([^/]++)(*:223)'
+                    .'|remove/([^/]++)(*:246)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -42,8 +47,11 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        193 => [[['_route' => 'find_a_recipe', '_controller' => 'App\\Controller\\HomeScreenController::findRecipe'], ['id'], null, null, false, true, null]],
+        223 => [[['_route' => 'edit_a_recipe', '_controller' => 'App\\Controller\\HomeScreenController::editRecipe'], ['id', 'name'], null, null, false, true, null]],
+        246 => [
+            [['_route' => 'remove_a_recipe', '_controller' => 'App\\Controller\\HomeScreenController::removeRecipe'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
