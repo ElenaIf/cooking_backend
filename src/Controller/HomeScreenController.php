@@ -30,15 +30,11 @@ class HomeScreenController extends AbstractController
     public function addRecipe(){
         $entityManager = $this->getDoctrine()->getManager();
 
-//        $newRecipe = new Recipe();
-//        $newRecipe->setName($_GET["name"]);
-//        $newRecipe->setIngredients($_GET["ingredients"]);
-//        $newRecipe->setDifficulty($_GET["difficulty"]);
-
         $newRecipe = new Recipe();
-        $newRecipe->setName("Pancakes");
-        $newRecipe->setIngredients("Milk");
-        $newRecipe->setDifficulty("normal");
+        $newRecipe->setName($_GET["name"]);
+        $newRecipe->setIngredients($_GET["ingredients"]);
+        $newRecipe->setDifficulty($_GET["difficulty"]);
+
 
         $entityManager->persist($newRecipe);
 
