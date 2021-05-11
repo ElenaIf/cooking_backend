@@ -22,15 +22,26 @@ class Recipe
      */
     private $name;
 
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $ingredients;
 
     /**
      * @ORM\Column(type="string", length=20)
      */
     private $difficulty;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $ingredients = [];
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $instructions;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
 
     public function getId(): ?int
     {
@@ -49,17 +60,8 @@ class Recipe
         return $this;
     }
 
-    public function getIngredients(): ?string
-    {
-        return $this->ingredients;
-    }
 
-    public function setIngredients(string $ingredients): self
-    {
-        $this->ingredients = $ingredients;
 
-        return $this;
-    }
 
     public function getDifficulty(): ?string
     {
@@ -69,6 +71,42 @@ class Recipe
     public function setDifficulty(string $difficulty): self
     {
         $this->difficulty = $difficulty;
+
+        return $this;
+    }
+
+    public function getIngredients(): ?array
+    {
+        return $this->ingredients;
+    }
+
+    public function setIngredients(array $ingredients): self
+    {
+        $this->ingredients = $ingredients;
+
+        return $this;
+    }
+
+    public function getInstructions(): ?string
+    {
+        return $this->instructions;
+    }
+
+    public function setInstructions(string $instructions): self
+    {
+        $this->instructions = $instructions;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }

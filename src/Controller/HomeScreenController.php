@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Recipe;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RateLimiter\RequestRateLimiterInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,15 +14,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeScreenController extends AbstractController
 {
     /**
-     * @Route("/recipes/add", name="add_new_recipe", methods={"GET", "POST"})
+     * @Route("/recipes/add", name="add_new_recipe", methods={"POST"})
      */
-    public function addRecipe(){
+    public function addRecipe(Request $request){
         $entityManager = $this->getDoctrine()->getManager();
+        $data = json_decode($request->getContent(),true);
 
         $newRecipe = new Recipe();
-        $newRecipe->setName($_GET["name"]);
-        $newRecipe->setIngredients($_GET["ingredients"]);
-        $newRecipe->setDifficulty($_GET["difficulty"]);
+        $newRecipe->setName($data["name"]);
+        $newRecipe->setIngredients(["ingredient1", "ingredient2", "ingredient3"]);
+        $newRecipe->setDifficulty($data["difficulty"]);
 
 
         $entityManager->persist($newRecipe);
@@ -118,6 +120,11 @@ public function removeRecipe($id){
       ]);
     }
 }
+
+// to call to my backend
+//fetch('https://secret-shore-65901.herokuapp.com/recipes/all')
+//.then(resp => resp.json())
+//.then(resp => console.log(resp))
 
 }
 

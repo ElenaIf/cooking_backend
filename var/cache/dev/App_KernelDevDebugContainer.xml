@@ -337,6 +337,10 @@
         <argument type="service" id=".service_locator.5nX7ca3.App\Controller\HomeScreenController"/>
       </call>
     </service>
+    <service id="App\Repository\IdRepository" class="App\Repository\IdRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\RecipeRepository" class="App\Repository\RecipeRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -4133,7 +4137,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.jJmecGn"/>
+      <argument type="service" id=".service_locator.mL6Hb1i"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5096,6 +5100,8 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeScreenController" class="App\Controller\HomeScreenController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeScreenController" class="App\Controller\HomeScreenController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeScreenController" class="App\Controller\HomeScreenController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\IdRepository" class="App\Repository\IdRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\IdRepository" class="App\Repository\IdRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RecipeRepository" class="App\Repository\RecipeRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\RecipeRepository" class="App\Repository\RecipeRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.Kbr2i2X" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -5656,9 +5662,10 @@
         <argument key="doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber" type="service" id="doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.jJmecGn" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.mL6Hb1i" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\IdRepository" type="service" id="App\Repository\IdRepository"/>
         <argument key="App\Repository\RecipeRepository" type="service" id="App\Repository\RecipeRepository"/>
       </argument>
     </service>
