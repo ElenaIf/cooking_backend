@@ -22,8 +22,10 @@ class HomeScreenController extends AbstractController
 
         $newRecipe = new Recipe();
         $newRecipe->setName($data["name"]);
-        $newRecipe->setIngredients(["ingredient1", "ingredient2", "ingredient3"]);
+        $newRecipe->setPhoto($data["photo"]);
+        $newRecipe->setInstructions($data["instructions"]);
         $newRecipe->setDifficulty($data["difficulty"]);
+        $newRecipe->setIngredients($data["ingredients"]);
 
 
         $entityManager->persist($newRecipe);
@@ -47,8 +49,11 @@ class HomeScreenController extends AbstractController
             $response[] = array(
                 'id' => $recipe->getId(),
                 'name'=>$recipe->getName(),
+                'photo'=>$recipe->getPhoto(),
+                'instructions'=>$recipe->getInstructions(),
+                'difficulty'=>$recipe->getDifficulty(),
                 'ingredients'=>$recipe->getIngredients(),
-                'difficulty'=>$recipe->getDifficulty()
+
             );
         }
 
