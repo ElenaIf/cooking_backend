@@ -76,8 +76,10 @@ class HomeScreenController extends AbstractController
             return $this->json([
                 'id' => $recipe->getId(),
                 'name'=>$recipe->getName(),
+                'photo'=>$recipe->getPhoto(),
+                'instructions'=>$recipe->getInstructions(),
+                'difficulty'=>$recipe->getDifficulty(),
                 'ingredients'=>$recipe->getIngredients(),
-                'difficulty'=>$recipe->getDifficulty()
             ]);
         }
 
